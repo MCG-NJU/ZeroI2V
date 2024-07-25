@@ -1,12 +1,13 @@
 # ZeroI2V: Zero-Cost Adaptation of Pre-trained Transformers from Image to Video（ECCV2024)
 
-This repo is the official implementation of ["ZeroI2V: Zero-Cost Adaptation of Pre-trained Transformers from Image to Video"](https://arxiv.org/abs/2310.01324) 
+This repo is the official implementation of ["ZeroI2V: Zero-Cost Adaptation of Pre-trained Transformers from Image to Video"](https://arxiv.org/abs/2310.01324)（ECCV2024)
 
+If you're interested in our work, check out our new [video adaptation benchmark](https://github.com/MCG-NJU/VideoEval)!
 
 ## TODO
-- [x] Release a part of source codes
-- [ ] Release source codes 
-- [ ] Pretrained model weights
+
+- [x] Release source codes 
+- [x] Pretrained model weights
 
 
 ## Introduction
@@ -18,19 +19,20 @@ In this paper, we present a zero-cost adaptation paradigm (ZeroI2V) to transfer 
 
 ## Models
 
+> You could reparameter the weight refer to `tools\weight_reparam.py`.
 ### Kinetics 400
 
-| Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Checkpoint | Checkpoint before reparam |
+| Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Config | Checkpoint (before reparam) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| ViT-B/16 | CLIP | 422 | 86 | 0 | 83.0 | 8x1x3 | [checkpoint]() | [checkpoint]() |
-| ViT-L/14 | CLIP | 7783 | 304 | 0 | 87.2 | 32x1x3 | [checkpoint]() | [checkpoint]() |
+| ViT-B/16 | CLIP | 422 | 86 | 0 | 83.0 | 8x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-L/14 | CLIP | 1946 | 304 | 0 | 86.3 | 8x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-L/14 | CLIP | 7783 | 304 | 0 | 87.2 | 32x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-L_k400_32x4x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
 
 ### Something Something V2
 
-| Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Checkpoint | Checkpoint before reparam |
+| Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Config | Checkpoint (before reparam) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |:---: |
-| ViT-B/16 | CLIP |  422   | 86 | 0 | 67.7 | 8x3x1 | [checkpoint]() | [checkpoint]() |
-| ViT-L/14 | CLIP | 7783 | 304 | 0 | 72.2 | 32x3x1 |[checkpoint]()| [checkpoint]() |
+| ViT-L/14 | CLIP | 7783 | 304 | 0 | 72.2 | 32x3x1 |[config](configs\recognition\vit_zero_clip\CLIP-L_sthv2_u32.py)| [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
 
 ## Installation
 
@@ -81,7 +83,7 @@ If you find our work useful in your research, please cite:
 ```
 @article{li2023zeroi2v,
   title={ZeroI2V: Zero-Cost Adaptation of Pre-trained Transformers from Image to Video},
-  author={Li, Xinhao and Wang, Limin},
+  author={Li, Xinhao and Zhu, Yuhan and Wang, Limin},
   journal={arXiv preprint arXiv:2310.01324},
   year={2023}
 }

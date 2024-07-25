@@ -178,7 +178,6 @@ class STDHA(nn.MultiheadAttention):
                 b_q, b_k, b_v = in_proj_bias.chunk(3)
             q, k, v = F._in_projection(query, key, value, q_proj_weight, k_proj_weight, v_proj_weight, b_q, b_k, b_v)
 
-        # shift k, v just like xvit
         if self.shift_pattern == 'qkv':
             q = self.time_shift(q)
             raise NotImplementedError

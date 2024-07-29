@@ -19,20 +19,20 @@ In this paper, we present a zero-cost adaptation paradigm (ZeroI2V) to transfer 
 
 ## Models
 
-> You could reparameter the weight refer to `tools\weight_reparam.py`.
+> You could reparameter the weight refer to `tools/weight_reparam.py`.
 ### Kinetics 400
 
 | Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Config | Checkpoint (before reparam) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| ViT-B/16 | CLIP | 422 | 86 | 0 | 83.0 | 8x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
-| ViT-L/14 | CLIP | 1946 | 304 | 0 | 86.3 | 8x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
-| ViT-L/14 | CLIP | 7783 | 304 | 0 | 87.2 | 32x1x3 | [config](configs\recognition\vit_zero_clip\CLIP-L_k400_32x4x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-B/16 | CLIP | 422 | 86 | 0 | 83.0 | 8x1x3 | [config](configs/recognition/vit_zero_clip/CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-L/14 | CLIP | 1946 | 304 | 0 | 86.3 | 8x1x3 | [config](configs/recognition/vit_zero_clip/CLIP-B_k400_8x16x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-L/14 | CLIP | 7783 | 304 | 0 | 87.2 | 32x1x3 | [config](configs/recognition/vit_zero_clip/CLIP-L_k400_32x4x1.py) | [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
 
 ### Something Something V2
 
 | Backbone |  Pretrain   | GFLOPs | Param | New Param (M) | acc@1 | Views | Config | Checkpoint (before reparam) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |:---: |
-| ViT-L/14 | CLIP | 7783 | 304 | 0 | 72.2 | 32x3x1 |[config](configs\recognition\vit_zero_clip\CLIP-L_sthv2_u32.py)| [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
+| ViT-L/14 | CLIP | 7783 | 304 | 0 | 72.2 | 32x3x1 |[config](configs/recognition/vit_zero_clip/CLIP-L_sthv2_u32.py)| [checkpoint](https://huggingface.co/MCG-NJU/ZeroI2V) |
 
 ## Installation
 
@@ -73,10 +73,10 @@ bash tools/dist_test.sh <PATH/TO/CONFIG> <CHECKPOINT_FILE> <NUM_GPU> --eval top_
 ```
 ## Reparameterize the linear adapter
 
-Please refer to `tools\weight_reparam.py`.
+Please refer to `tools/weight_reparam.py`.
 ## Test speed and throughput
 
-Please refer to `tools\test_speed.py` and `tools\test_throughput.py`.
+Please refer to `tools/test_speed.py` and `tools/test_throughput.py`.
 
 
 If you find our work useful in your research, please cite:
